@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <title>AKAIROSERVER - ホーム</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    //bulma css link tag
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+  //bulma css link tag End
+  
   <style>
     /* Global Styles */
     body {
@@ -67,6 +73,35 @@
       text-align: center;
       font-size: 12px;
     }
+        /* コンテナは横にスクロールさせるエリア */
+    .logo-container {
+      width: 100%;
+      overflow: hidden; /* はみ出た部分を隠す */
+      background-color: #f5f5f5;
+      border: 1px solid #e0e0e0;
+    }
+    /* ロゴの並びを横並びにする */
+    .logo-track {
+      display: flex;
+      width: calc(200%); /* 複製してシームレスにする場合に調整 */
+      animation: scrollLogos 15s linear infinite;
+    }
+    .logo {
+      flex: 0 0 auto;
+      margin-right: 30px;
+    }
+    .logo img {
+      max-height: 50px; /* ロゴの高さは適宜調整 */
+    }
+    /* アニメーションの定義：右から左へスクロール */
+    @keyframes scrollLogos {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
   </style>
 </head>
 <body>
@@ -92,9 +127,30 @@
   
   <!-- Main Content -->
   <div class="container">
-    <h1>ようこそ、AKAIROSERVERへ！</h1>
-    <p>このサーバーはマインクラフトの公式サーバーです。サーバーでの禁止事項などにご注意ください。</p>
-    
+       <section class="hero is-fullheight" style="background: url(maintenance-logo.png) center">
+      <div class="hero-body">
+        <div id="app" class="container">
+        <h1 class="title is-size-1">
+          ようこそ、AKAIROSERVERへ！
+        </h1>
+        <h1 class="is-size-2">サーバーでの禁止事項などにご注意ください。</h1>
+
+            <div class="logo-container">
+    <div class="logo-track">
+      <!-- ロゴを複製してシームレスなループを実現 -->
+      <div class="logo"><img src="logo1.png" alt="Logo 1"></div>
+      <div class="logo"><img src="logo2.png" alt="Logo 2"></div>
+      <div class="logo"><img src="logo3.png" alt="Logo 3"></div>
+      <div class="logo"><img src="logo4.png" alt="Logo 4"></div>
+      <!-- 複製部分 -->
+      <div class="logo"><img src="logo1.png" alt="Logo 1"></div>
+      <div class="logo"><img src="logo2.png" alt="Logo 2"></div>
+      <div class="logo"><img src="logo3.png" alt="Logo 3"></div>
+      <div class="logo"><img src="logo4.png" alt="Logo 4"></div>
+    </div>
+  </div>
+  
+          
     <!-- Latest News Snippet Section -->
     <div id="news-snippet">
       <!-- 最新情報ページの内容から取得した一部が表示されます -->
