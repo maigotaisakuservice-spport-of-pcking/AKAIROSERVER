@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>現在アクセス出来ません</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* シンプルなアクセス不可ページ用スタイル */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      padding: 50px;
+    }
+    .button {
+      background-color: #e91e63;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    .button:hover {
+      background-color: #d81b60;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>現在アクセス出来ません</h1>
+    <p>サーバーにアクセスできません。状況を確認するには下のボタンを押してください。</p>
+    <button class="button" onclick="redirectToStatus()">サーバー稼働状況を見る</button>
+  </div>
+  
+  <script>
+    // ボタン押下時にサーバー稼働状況ページへ転移
+    function redirectToStatus() {
+      window.location.href = "status.html";
+    }
+  </script>
+  
+  <!-- システム用の「現在アクセス出来ません」ページ -->
+</body>
+</html>
