@@ -147,6 +147,15 @@
       }
     }
     setInterval(checkRedirectFlag, 1000);
+
+    //403 アクセス禁止ページ転移用フラグ （初期はfalse）
+        var redirectFlag = false;
+    function checkRedirectFlag() {
+      if(redirectFlag === true) {
+        window.location.href = "inaccessible.html";
+      }
+    }
+    setInterval(checkRedirectFlag, 1000);
     
     // 最新情報ページ（news.html）から内容を取得して一部表示
     document.addEventListener('DOMContentLoaded', function() {
