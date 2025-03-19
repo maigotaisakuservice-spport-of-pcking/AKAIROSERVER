@@ -132,7 +132,7 @@
       var day = now.getDay();
       var hour = now.getHours();
       // 金曜22:00～土曜06:00の場合はメンテナンスページへ転移
-      if ((day === 3 && hour >= 16) || (day === 6 && hour < 6)) {
+      if ((day === 5 && hour >= 22) || (day === 6 && hour < 6)) {
         window.location.href = "maintenance.html";
       }
     }
