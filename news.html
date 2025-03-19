@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>AKAIROSERVER - 最新情報</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #fff;
+      border-bottom: 2px solid #e0e0e0;
+      padding: 10px 20px;
+      position: relative;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #e91e63;
+    }
+    /* Hamburger menu styles */
+    .hamburger {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin: 4px 0;
+    }
+    .nav-menu {
+      display: none;
+      background-color: #fff;
+      position: absolute;
+      top: 50px;
+      right: 20px;
+      border: 1px solid #ccc;
+      z-index: 100;
+    }
+    .nav-menu a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+    }
+    .nav-menu a:hover {
+      background-color: #e91e63;
+      color: #fff;
+    }
+    .container {
+      padding: 20px;
+    }
+    footer {
+      background-color: #fff;
+      border-top: 1px solid #e0e0e0;
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with Logo and Hamburger Menu -->
+  <header>
+    <div class="logo">AKAIROSERVER</div>
+    <div id="hamburger" class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <!-- Navigation Menu -->
+    <div id="nav-menu" class="nav-menu">
+      <a href="index.html">ホーム</a>
+      <a href="join.html">参加方法</a>
+      <a href="news.html">最新情報</a>
+      <a href="rules.html">サーバールール</a>
+      <a href="credits.html">提供クレジット</a>
+      <a href="contact.html">お問い合わせ</a>
+      <a href="status.html">サーバー稼働状況</a>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <div class="container">
+    <h1>最新情報</h1>
+    <!-- サーバーの最新ニュース、更新内容 -->
+    <p>2025年3月: 新しいアップデートがリリースされました！サーバーのパフォーマンスが向上し、新機能が追加されました。</p>
+    <p>2025年2月: イベント開催のお知らせ。詳細はDiscordサーバーでご確認ください。</p>
+    <p>今後もサーバーのメンテナンス情報やアップデート内容を随時更新していきます。</p>
+  </div>
+  
+  <footer>
+    &copy; 2025 AKAIROSERVER. All rights reserved.
+  </footer>
+  
+  <!-- Inline JavaScript -->
+  <script>
+    // ハンバーガーメニューのトグル関数
+    function toggleMenu() {
+      var menu = document.getElementById('nav-menu');
+      if(menu.style.display === 'block'){
+        menu.style.display = 'none';
+      } else {
+        menu.style.display = 'block';
+      }
+    }
+    // 画面外クリックでメニューを閉じる
+    document.addEventListener('click', function(event) {
+      var menu = document.getElementById('nav-menu');
+      var hamburger = document.getElementById('hamburger');
+      if(!hamburger.contains(event.target) && !menu.contains(event.target)){
+        menu.style.display = 'none';
+      }
+    });
+  </script>
+  
+  <!-- 更新メモ：最新情報の内容は随時更新してください -->
+</body>
+</html>
