@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>AKAIROSERVER - ホーム</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #fff;
+      border-bottom: 2px solid #e0e0e0;
+      padding: 10px 20px;
+      position: relative;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #e91e63; /* Pink accent */
+    }
+    /* Hamburger menu styles */
+    .hamburger {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin: 4px 0;
+    }
+    .nav-menu {
+      display: none;
+      background-color: #fff;
+      position: absolute;
+      top: 50px;
+      right: 20px;
+      border: 1px solid #ccc;
+      z-index: 100;
+    }
+    .nav-menu a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+    }
+    .nav-menu a:hover {
+      background-color: #e91e63;
+      color: #fff;
+    }
+    .container {
+      padding: 20px;
+    }
+    footer {
+      background-color: #fff;
+      border-top: 1px solid #e0e0e0;
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with Logo and Hamburger Menu -->
+  <header>
+    <div class="logo">AKAIROSERVER</div>
+    <div id="hamburger" class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <!-- Navigation Menu -->
+    <div id="nav-menu" class="nav-menu">
+      <a href="index.html">ホーム</a>
+      <a href="join.html">参加方法</a>
+      <a href="news.html">最新情報</a>
+      <a href="rules.html">サーバールール</a>
+      <a href="credits.html">提供クレジット</a>
+      <a href="contact.html">お問い合わせ</a>
+      <a href="status.html">サーバー稼働状況</a>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <div class="container">
+    <h1>ようこそ、AKAIROSERVERへ！</h1>
+    <p>このサーバーはマインクラフトの公式サーバーです。サーバーでの禁止事項などにご注意ください。</p>
+    
+    <!-- Latest News Snippet Section -->
+    <div id="news-snippet">
+      <!-- 最新情報ページの内容から取得した一部が表示されます -->
+      <p>最新情報を読み込み中...</p>
+    </div>
+  </div>
+  
+  <footer>
+    &copy; 2025 AKAIROSERVER. All rights reserved.
+  </footer>
+  
+  <!-- Inline JavaScript -->
+  <script>
+    // ハンバーガーメニューのトグル関数
+    function toggleMenu() {
+      var menu = document.getElementById('nav-menu');
+      if(menu.style.display === 'block'){
+        menu.style.display = 'none';
+      } else {
+        menu.style.display = 'block';
+      }
+    }
+    // 画面外クリックでメニューを閉じる
+    document.addEventListener('click', function(event) {
+      var menu = document.getElementById('nav-menu');
+      var hamburger = document.getElementById('hamburger');
+      if(!hamburger.contains(event.target) && !menu.contains(event.target)){
+        menu.style.display = 'none';
+      }
+    });
+    
+    // メンテナンスチェック：毎10秒ごとに現在時刻をチェック
+    function checkMaintenance() {
+      var now = new Date();
+      var day = now.getDay();
+      var hour = now.getHours();
+      // 金曜22:00～土曜06:00の場合はメンテナンスページへ転移
+      if ((day === 5 && hour >= 22) || (day === 6 && hour < 6)) {
+        window.location.href = "maintenance.html";
+      }
+    }
+    setInterval(checkMaintenance, 10000);
+    checkMaintenance(); // 初期チェック
+    
+    // 「現在アクセス出来ません」転移用フラグ（初期はfalse）
+    var redirectFlag = false;
+    function checkRedirectFlag() {
+      if(redirectFlag === true) {
+        window.location.href = "inaccessible.html";
+      }
+    }
+    setInterval(checkRedirectFlag, 1000);
+    
+    // 最新情報ページ（news.html）から内容を取得して一部表示
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('news.html')
+      .then(response => response.text())
+      .then(data => {
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(data, 'text/html');
+        var title = doc.querySelector('h1') ? doc.querySelector('h1').innerText : '最新情報';
+        var content = doc.querySelector('.container') ? doc.querySelector('.container').innerText : '';
+        document.getElementById('news-snippet').innerHTML = '<h2>' + title + '</h2><p>' + content.substring(0,200) + '...</p>';
+      })
+      .catch(error => {
+        console.error('最新情報の取得エラー:', error);
+        document.getElementById('news-snippet').innerHTML = '<p>最新情報の読み込みに失敗しました。</p>';
+      });
+    });
+  </script>
+  
+  <!-- 今後の更新を見据えた各種コメント・メモ -->
+  <!--
+    ※ このホームページでは、メンテナンス時の自動転移とアクセス不可フラグによる転移機能を実装しています。
+    ※ 最新情報は news.html から取得しているため、news.html の更新により自動的に反映されます。
+  -->
+</body>
+</html>
