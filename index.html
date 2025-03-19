@@ -4,12 +4,7 @@
   <meta charset="UTF-8">
   <title>AKAIROSERVER - ホーム</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-    //bulma css link tag
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
-  //bulma css link tag End
-  
+
   <style>
     /* Global Styles */
     body {
@@ -127,13 +122,11 @@
   
   <!-- Main Content -->
   <div class="container">
-       <section class="hero is-height" style="background: url(maintenance-logo.png) center">
-      <div class="hero-body">
-        <div id="app" class="container">
-        <h1 class="title is-size-1">
+        <div>
+        <h1>
           ようこそ、AKAIROSERVERへ！
         </h1>
-        <h1 class="is-size-2">サーバーでの禁止事項などにご注意ください。</h1>
+        <h1>サーバーでの禁止事項などにご注意ください。</h1>
 
     <div class="logo-container">
     <div class="logo-track">
@@ -154,7 +147,18 @@
   </div>
   
   <footer>
-    &copy; 2025 AKAIROSERVER. All rights reserved.
+    <div class="footer-bottom-content">
+     <nav>
+  <div>
+<ul id="menu-%e3%83%95%e3%83%83%e3%82%bf%e3%83%bc%e3%83%a1%e3%83%8b%e3%83%a5%e3%83%bc" class="menu-footer">
+<li><a rel="privacy-policy" href="privacy-policy.html">プライバシーポリシー</a></li>
+<li><a href="contact.html">お問い合わせ</a></li>
+<li><a href="credits.html">提供クレジット</a></li>
+</ul>  </div>
+</nav>
+    <div>
+    Copyright © 2025 AKAIROSERVER. All rights reserved.
+    </div>
   </footer>
   
   <!-- Inline JavaScript -->
@@ -197,7 +201,7 @@
         window.location.href = "inaccessible.html";
       }
     }
-    setInterval(checkRedirectFlag, 1000);
+    setInterval(checkredirectFlag, 1000);
 
     //403 アクセス禁止ページ転移用フラグ （初期はfalse）
         var redirectFlag = false;
@@ -206,7 +210,7 @@
         window.location.href = "inaccessible.html";
       }
     }
-    setInterval(checkRedirectFlag, 1000);
+    setInterval(checkredirectFlag, 1000);
     
     // 最新情報ページ（news.html）から内容を取得して一部表示
     document.addEventListener('DOMContentLoaded', function() {
