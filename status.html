@@ -143,6 +143,7 @@
       }
       
       // サーバーへ接続を試みる（akairoserver.aternos.me）
+      //DOS攻撃みたいな形式になってしまったため停止中
       fetch('https://akairoserver.aternos.me')
       .then(response => {
         if(response.ok){
@@ -155,7 +156,7 @@
         statusElem.innerText = '問題が発生しています';
       });
     }
-    setInterval(updateServerStatus, 5); // 5ms = 5秒
+    setInterval(updateServerStatus, TEISITYUU); // TEISITYUU = スクリプト停止中
     updateServerStatus(); // 初期チェック
   </script>
   
