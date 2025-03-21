@@ -20,6 +20,18 @@
       padding: 10px 20px;
       position: relative;
     }
+
+    .footer {
+       list-style: none;
+       display: flex;
+    } 
+
+    .footer l{
+       width: 100%;
+       box-sizing: border-box;
+       text-align: center;
+    }
+    
     .logo {
       font-size: 24px;
       font-weight: bold;
@@ -146,11 +158,11 @@
     </div>
   </div>
 
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <div> </div>
+      <div> </div>
+      <div> </div>
+      <div> </div>
+      <div> </div>
     
     <div class="ark-block-timeline">
 <div class="ark-block-timeline__item"><div class="ark-block-timeline__head"><span class="ark-block-timeline__shape"></span>
@@ -213,7 +225,7 @@
     <div class="footer-bottom-content">
      <nav>
   <div>
-<ul>
+<ul class="footer">
 <li><a rel="privacy-policy" href="privacy-policy.html">プライバシーポリシー</a></li>
 <li><a href="contact.html">お問い合わせ</a></li>
 <li><a href="credits.html">提供クレジット</a></li>
@@ -249,8 +261,8 @@
       var now = new Date();
       var day = now.getDay();
       var hour = now.getHours();
-      // 金曜22:00～土曜06:00の場合はメンテナンスページへ転移
-      if ((day === 5 && hour >= 22) || (day === 6 && hour < 6)) {
+      // 金曜17:00～土曜06:00の場合はメンテナンスページへ転移
+      if ((day === 5 && hour >= 17) || (day === 6 && hour < 6)) {
         window.location.href = "maintenance.html";
       }
     }
