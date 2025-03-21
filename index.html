@@ -258,7 +258,7 @@
     checkMaintenance(); // 初期チェック
     
     // 「現在アクセス出来ません」転移用フラグ（初期はfalse）
-    var redirectFlag = true;
+    var redirectFlag = false;
     function checkRedirectFlag() {
       if(redirectFlag === true) {
         window.location.href = "inaccessible.html";
